@@ -1,0 +1,64 @@
+classDiagram
+    class Vehicle {
+        <<interface>>
+        +drive() void
+    }
+
+    class Car {
+        <<interface>>
+        +drive() void
+    }
+
+    class Bike {
+        <<interface>>
+        +drive() void
+    }
+
+    class VehicleFactory {
+        <<interface>>
+        +createCar() Car
+        +createBike() Bike
+    }
+
+    %% Concrete Products
+    class LuxuryCar {
+        +drive() void
+    }
+    class LuxuryBike {
+        +drive() void
+    }
+    class EconomyCar {
+        +drive() void
+    }
+    class EconomyBike {
+        +drive() void
+    }
+
+    %% Concrete Factories
+    class LuxuryVehicleFactory {
+        +createCar() Car
+        +createBike() Bike
+    }
+    class EconomyVehicleFactory {
+        +createCar() Car
+        +createBike() Bike
+    }
+
+    %% Relationships
+    Vehicle <|-- Car
+    Vehicle <|-- Bike
+
+    Car <|-- LuxuryCar
+    Car <|-- EconomyCar
+
+    Bike <|-- LuxuryBike
+    Bike <|-- EconomyBike
+
+    VehicleFactory <|.. LuxuryVehicleFactory
+    VehicleFactory <|.. EconomyVehicleFactory
+
+    LuxuryVehicleFactory --> LuxuryCar
+    LuxuryVehicleFactory --> LuxuryBike
+
+    EconomyVehicleFactory --> EconomyCar
+    EconomyVehicleFactory --> EconomyBike
