@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // required for import.meta
+    "module": "ES2020", // must be ES2020 or higher
+    "moduleResolution": "Node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  }
+}
